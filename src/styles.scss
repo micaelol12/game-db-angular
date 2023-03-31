@@ -1,0 +1,43 @@
+@use "@angular/material" as mat;
+@import "./app/_app.component-theme.scss";
+@include mat.core();
+
+
+
+html,
+body {
+  height: 100%;
+  padding-top: 30px;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+$game-db-primary: mat.define-palette(mat.$red-palette, 900);
+$game-db-secondary: mat.define-palette(mat.$gray-palette, 900);
+$game-db-accent: mat.define-palette(mat.$orange-palette, A200, A100, A400);
+$game-db-warn: mat.define-palette(mat.$red-palette);
+$game-db-theme: mat.define-light-theme($game-db-primary, $game-db-accent, $game-db-secondary);
+$game-db-theme-dark: mat.define-dark-theme($game-db-primary, $game-db-accent, $game-db-secondary);
+
+@mixin custom-theme($theme) {
+  @include mat.all-component-themes($theme);
+  @include app-root-theme($theme);
+}
+.theme-dark {
+  @include custom-theme($game-db-theme-dark);
+}
+.theme-light {
+  @include custom-theme($game-db-theme);
+}
+ngb-carousel {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+ngb-carousel video {
+  width: 100%;
+  outline: none;
+}
+
+/* Importing Bootstrap SCSS file. */

@@ -1,0 +1,75 @@
+<div class="details" *ngIf="game" fxLayout="row wrap" fxLayoutAlign="center">
+  <div class="game-banner" fxFlex="100">
+    <img
+      [src]="game.background_image"
+      alt="background image"
+      class="game-banner-img"
+    />
+  </div>
+  <div
+    class="game-content"
+    fxLayout="row wrap"
+    fxFlex="80"
+    fxLayoutAlign="space-between"
+  >
+    <div class="details-wrapper" fxFlex="40">
+      <div class="game-header">
+        <h2 class="game-header-release-date">
+          {{ game.released | brDatePipe }}
+        </h2>
+        <h1 class="game-header-title">{{ game.name }}</h1>
+      </div>
+      <h2>About</h2>
+      <span [innerHTML]="game.description_raw" ></span>
+      <div class="game-infos" fxLayout="row wrap">
+        <app-game-info
+          title="Genre"
+          [description]="game.genres"
+          fxFlex="40"
+        ></app-game-info>
+        <app-game-info
+          title="Developers"
+          fxFlex="40"
+          [description]="game.developers"
+        ></app-game-info>
+        <app-game-info
+          title="Publishers"
+          fxFlex="40"
+          [description]="game.publishers"
+        ></app-game-info>
+        <div fxLayout="row wrap" style="margin-top: 10px">
+          <Span fxFlex="100" class="metascore-text">Metascore</Span>
+          <app-metacritc
+            [metacritc]="game.metacritic"
+            fxFlex="20"
+          ></app-metacritc>
+        </div>
+        <app-game-info
+          title="Platforms"
+          [description]="game.platforms"
+        ></app-game-info>
+        <app-game-info
+          title="Tags"
+          fxFlex="100"
+          [description]="game.tags"
+        ></app-game-info>
+      </div>
+      <div style="margin-top:20px">
+        <h2>Onde comprar</h2>
+        <app-store-buttons [stores]="game.stores"></app-store-buttons>
+      </div>
+    </div>
+    <div class="game-media">
+      <app-game-tabs [game]="game"></app-game-tabs>
+    </div>
+  </div>
+  <video
+    fxFlex="80"
+    class="game-trailer"
+    controls
+    *ngIf="game.trailers[0]?.data?.max"
+  >
+    <source src="{{ game.trailers[0]?.data?.max }}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>

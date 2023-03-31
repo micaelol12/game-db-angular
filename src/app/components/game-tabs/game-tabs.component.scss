@@ -1,0 +1,19 @@
+.game-tabs {
+  color: #fff;
+  text-align: left;
+  padding: 10px;
+}
+
+.game-screenshot {
+  margin-top: 5px;
+  width: calc(50% - 5px);
+  transition: 0.3s;
+}
+.game-screenshot:nth-child(even) {
+  margin-right: 10px;
+}
+
+.game-trailer {
+  width: 100%;
+  margin: 20px 0;
+}

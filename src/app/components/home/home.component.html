@@ -1,0 +1,19 @@
+<div class="filters">
+  <mat-form-field appearance="outline" color="primary">
+    <mat-label>Filtre</mat-label>
+    <mat-select panelClass="sort-selcet" [(ngModel)]="sort" (selectionChange)="searchGames(sort)" >
+      <mat-option value="name">Nome</mat-option>
+      <mat-option value="-released">Lançamento</mat-option>
+      <mat-option value="-added">Adicionado</mat-option>
+      <mat-option value="-created">Criado</mat-option>
+      <mat-option value="-updated">Atualizado</mat-option>
+      <mat-option value="metacriti">Metacritic</mat-option>
+      <mat-option value="-rating">Avaliação</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="games">
+  <ng-container *ngFor="let game of games">
+    <app-game-card [game]="game" class="game" (click)="openGameDetails(game.id)"></app-game-card>
+  </ng-container>
+</div>

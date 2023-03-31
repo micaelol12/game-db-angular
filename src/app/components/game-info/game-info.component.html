@@ -1,0 +1,9 @@
+<div class="info" style="margin-top: 10px">
+  <p class="info-title">{{ title }}</p>
+  <div>
+    <span *ngFor="let descriptionItem of description; let last = last"
+      >{{ descriptionItem.name || descriptionItem.platform.name
+      }}<span *ngIf="!last">, </span></span
+    >
+  </div>
+</div>

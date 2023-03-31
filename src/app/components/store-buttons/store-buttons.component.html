@@ -1,0 +1,16 @@
+<div fxLayout="row wrap" class="store-buttons">
+  <div *ngFor="let store of stores">
+    <button
+      mat-button
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      class="store-button"
+      (click)="externalUrl(store.store.domain)"
+    >
+      <span style="margin-right: 5px">{{
+        store.store.name
+      }}</span>
+      <img [src]="'../../../assets/StoresLogos/' + store.store.slug + '.svg'"/>
+    </button>
+  </div>
+</div>

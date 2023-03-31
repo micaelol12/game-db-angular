@@ -1,0 +1,79 @@
+.game-card{
+  width: 280px;
+  margin: 10px;
+  height: fit-content;
+  overflow-x: hidden;
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.39);
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.game-card:hover{
+  box-shadow: 4px 3px 11px 6px rgba(0, 0, 0, 0.46);
+  transform: translateY(-3px);
+  position: relative;
+  overflow: visible;
+  height: 270px;
+  width: 290px;
+  margin: 10px 5px;
+  z-index: 10;
+}
+
+.game-thumb-container{
+  border-radius: 5px;
+
+  position: relative;
+  height: 172px;
+  text-align: center;
+  overflow: hidden;
+}
+.game-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 172px;
+}
+.game-description-large{
+  height: fit-content !important;
+  position: relative;
+}
+.game-description {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: fit-content;
+  transition: 0.4s;
+}
+.game-details{
+  font-size: 0.8em;
+  width: inherit;
+  border-radius: 5px;
+  margin-top: -20px;
+  padding: 10px 20px 20px 20px;
+}
+.game-name {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.game-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.game-platforms {
+  display: flex;
+}
+
+.game-platform {
+  width: 15px;
+  margin-right: 10px;
+}

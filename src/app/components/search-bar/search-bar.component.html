@@ -1,0 +1,22 @@
+<div class="search-container">
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <mat-icon class="logo" routerLink="/"> videogame_asset </mat-icon>
+    <input
+      class="input"
+      name="search"
+      ngModel
+      placeholder="The Witcher 3..."
+    />
+    <button class="search-button">Pesquise</button>
+  </form>
+  <button
+    mat-icon-button
+    color="warn"
+    aria-label="Example icon button with a heart icon"
+    (click)="toggleChange($event)"
+  >
+    <mat-icon class="toggle-darkmode-button" [@rotatedState]="state">{{
+      mode ? "light_mode" : "dark_mode"
+    }}</mat-icon>
+  </button>
+</div>

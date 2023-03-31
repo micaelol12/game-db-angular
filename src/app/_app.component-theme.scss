@@ -1,0 +1,58 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
+@mixin app-root-theme($theme) {
+  $background: map-get($theme,background );
+  $foreground: map-get($theme, foreground );
+  $primary: map-get($theme, primary );
+    .game-card {
+       background-color: mat-color(mat.$gray-palette, 900) !important;
+       color: mat-color($primary, default-contrast);
+    };
+    .game-details{
+      background-color: mat-color(mat.$gray-palette, 900)!important;
+    }
+    .logo{
+      color: mat-color($primary) !important
+    }
+    .game-header-title{
+      color: mat-color($primary) !important
+    }
+    app-root{
+      background-color: mat-color($background, background);
+    };
+    .detail-title{
+      color: mat-color(mat.$gray-palette, 600) !important;
+    }
+    .info-title{
+      color:mat-color($foreground, text,50%);
+    }
+    .metascore-text{
+      color:mat-color($foreground, text,50%);
+    }
+    .game-header{
+      color: mat-color($foreground, text);
+    }
+    .toggle-darkmode-button{
+      color: mat-color($foreground, base);
+    }
+    .game-banner:after {
+      background: linear-gradient(to bottom, mat-color($background, background, 0%),mat-color($background, background,100%)) ;
+    }
+    .search-button{
+      color: mat-color($primary, default-contrast) !important;
+      background-color: mat-color($primary, default) !important;
+    }
+    .search-container{
+      border-bottom: 1px solid mat-color($background, raised-button);
+      background-color: mat-color($background, background);
+    }
+    .store-button {
+      background-color: mat-color($primary, default) !important;
+      color: mat-color($primary, default-contrast);
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    background-color: mat-color($background, background);
+    color: mat-color($foreground, text);
+}

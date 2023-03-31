@@ -1,0 +1,11 @@
+<div class="game-tabs">
+      <div>
+        <img
+          class="game-screenshot"
+          *ngFor="let screenshot of game.screenshots; let first = first"
+          [style.width]="first ? '100%': null"
+          src="{{ screenshot.image }}"
+          alt="screenshot"
+        />
+      </div>
+</div>

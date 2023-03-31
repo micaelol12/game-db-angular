@@ -1,0 +1,38 @@
+<div class="game-card" (mouseenter)="over = true" (mouseleave)="over = false">
+  <div class="game-thumb-container">
+    <img
+      *ngIf="game.background_image"
+      [src]="game.background_image"
+      alt="thumbnail"
+      class="game-thumbnail"
+    />
+  </div>
+  <div class="game-description" [ngClass]="{'game-description-large':over}">
+    <div class="game-info">
+      <div class="game-platforms">
+        <img
+          *ngFor="let gamePlatform of game.parent_platforms"
+          class="game-platform"
+          src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+          alt="{{ gamePlatform.platform.slug }}"
+        />
+      </div>
+      <app-metacritc [metacritc]="game.metacritic"></app-metacritc>
+    </div>
+    <p class="game-name">{{ game.name }}</p>
+  </div>
+  <div *ngIf="over" fxLayout="row wrap" class="game-details">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+      <span class="detail-title">Data de lançamento</span>
+      <span>{{ game.released | brDatePipe }}</span>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+      <span class="detail-title">Gêneros</span>
+      <div>
+        <span *ngFor="let genre of game.genres; let last = last"
+          >{{ genre.name }}<span *ngIf="!last">,</span></span
+        >
+      </div>
+    </div>
+  </div>
+</div>
